@@ -1,14 +1,12 @@
 package com.example.or_task.Controller;
 
 import com.example.or_task.Model.Users;
-import com.example.or_task.Repository.UsersRepository;
 import com.example.or_task.Services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -31,13 +29,12 @@ public class UsersController {
         return usersService.findUserById(id);
     }
     @GetMapping("/{name}")
-    public Users findUserGender(@PathVariable String name) {
+    public Users findUserByName(@PathVariable String name) {
          return usersService.findUserByName(name);
     }
 
-
     @RequestMapping(value = "/gender-for-name/{name}")
-    public String getProductList(@PathVariable("name") String name) {
+    public String getGender(@PathVariable("name") String name) {
        return usersService.getGender(name);
     }
 
