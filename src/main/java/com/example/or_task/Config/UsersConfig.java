@@ -14,9 +14,9 @@ public class UsersConfig {
     @Bean
     CommandLineRunner commandLineRunner(UsersRepository usersRepository){
         return args -> {
-           Users philipp =  new Users("Philipp", "lala");
-           Users bujar =  new Users("Bujar", "a123");
-           Users muharrem =  new Users("Muharrem", "abc");
+           Users philipp =  new Users("philipp", "lala");
+           Users bujar =  new Users("bujar", "a123");
+           Users muharrem =  new Users("muharrem", "abc");
            usersRepository.saveAll(List.of(philipp, bujar, muharrem));
         };
     }

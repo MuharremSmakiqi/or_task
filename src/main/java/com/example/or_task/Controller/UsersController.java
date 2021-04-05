@@ -6,6 +6,7 @@ import com.example.or_task.Services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -14,12 +15,10 @@ import java.util.List;
 @RestController
 public class UsersController {
     private final UsersService usersService;
-    private final UsersRepository usersRepository;
 
     @Autowired
-    public UsersController(UsersService usersService, UsersRepository usersRepository) {
+    public UsersController(UsersService usersService) {
         this.usersService = usersService;
-        this.usersRepository = usersRepository;
     }
 
     @GetMapping("/")
@@ -32,8 +31,14 @@ public class UsersController {
         return usersService.findUserById(id);
     }
     @GetMapping("/{name}")
-    public RedirectView findUserGender(@PathVariable String name) {
-        return usersService.findUserByName(name);
+    public Users findUserGender(@PathVariable String name) {
+         return usersService.findUserByName(name);
+    }
+
+
+    @RequestMapping(value = "/gender-for-name/{name}")
+    public String getProductList(@PathVariable("name") String name) {
+       return usersService.getGender(name);
     }
 
 }
