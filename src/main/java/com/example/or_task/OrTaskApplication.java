@@ -11,7 +11,7 @@ public class OrTaskApplication {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello Docker World -ps";
+		return "Testing";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(OrTaskApplication.class, args);

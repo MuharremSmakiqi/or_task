@@ -16,7 +16,8 @@ public class UsersConfig {
         return args -> {
            Users philipp =  new Users("Philipp", "lala");
            Users bujar =  new Users("Bujar", "a123");
-           usersRepository.saveAll(List.of(philipp, bujar));
+           Users muharrem =  new Users("Muharrem", "abc");
+           usersRepository.saveAll(List.of(philipp, bujar, muharrem));
         };
     }
 
